@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exclusive;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ExclusiveController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // Get all exclusives
-        $exclusives = Exclusive::whereNull('deleted_at')->get();
+        // Get all Categories
+        $categories = Category::whereNull('deleted_at')->get();
 
-        // Return the view
-        return view('exclusives.index', compact('exclusives'));
+        // Return view
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ExclusiveController extends Controller
     public function create()
     {
         // Return view
-        return view('exclusives.create');
+        return view('categories.create');
     }
 
     /**
@@ -39,10 +39,10 @@ class ExclusiveController extends Controller
         ]);
 
         // Create db entry
-        $exclusive = Exclusive::create($validated);
+        $line = Category::create($validated);
 
         // Redirect and return
-        return redirect()->route('exclusives.index')
+        return redirect()->route('categories.index')
             ->with('success', 'Line created successfully!');
     }
 
@@ -51,17 +51,17 @@ class ExclusiveController extends Controller
      */
     public function show($id)
     {
-        // Find by ID
-        $exclusive = Exclusive::where('id', $id)->firstOrFail();
+        // Get by ID
+        $category = Category::where('id', $id)->firstOrfail();
 
         // Return the view
-        return view('exclusives.show', compact('exclusive'));
+        return view('categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Exclusive $exclusive)
+    public function edit(Category $category)
     {
         //
     }
@@ -69,7 +69,7 @@ class ExclusiveController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Exclusive $exclusive)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -77,7 +77,7 @@ class ExclusiveController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Exclusive $exclusive)
+    public function destroy(Category $category)
     {
         //
     }
