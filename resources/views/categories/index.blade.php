@@ -29,7 +29,7 @@
                                     </a>
 
                                     <form method="POST" action="{{ route('categories.destroy', $category) }}" style="display: inline-block;"
-                                        onsubmit="return confirm('Are you sure you want to delete this line?')">
+                                        onsubmit="return confirm('Are you sure you want to delete this category?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">

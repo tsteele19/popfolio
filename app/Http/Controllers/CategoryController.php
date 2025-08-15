@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         // Redirect and return
         return redirect()->route('categories.index')
-            ->with('success', 'Line created successfully!');
+            ->with('success', 'Category created successfully!');
     }
 
     /**
@@ -63,7 +63,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // Return the view
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -71,7 +72,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // Validate the data
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        // Update the entry
+        $category->update($validated);
+
+        // Return view with redirect
+        return redirect()->route('categories.show')->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -79,6 +89,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        // Perform softdelete
+        $category->delete();
+
+        // Return view with redirect
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
     }
 }

@@ -6,7 +6,7 @@
 <div class="content">
     <div class="card">
         <div class="card-header">
-            <h5 class="mb-0">Exclusive Retailers</h5>
+            <h5 class="mb-0">Variants</h5>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -29,7 +29,7 @@
                                     </a>
 
                                     <form method="POST" action="{{ route('variants.destroy', $variant) }}" style="display: inline-block;"
-                                        onsubmit="return confirm('Are you sure you want to delete this line?')">
+                                        onsubmit="return confirm('Are you sure you want to delete this variant?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">

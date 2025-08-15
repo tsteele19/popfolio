@@ -62,7 +62,8 @@ class VariantController extends Controller
      */
     public function edit(Variant $variant)
     {
-        //
+        // Return view
+        return view ('variants.edit', compact('variant'));
     }
 
     /**
@@ -70,7 +71,16 @@ class VariantController extends Controller
      */
     public function update(Request $request, Variant $variant)
     {
-        //
+        // Validate data
+        $validated = $request->validate([
+            'name' => ['string', 'required', 'max:255']
+        ]);
+
+        // Update entry
+        $variant->update($validated);
+
+        // Return view with redirect
+        return redirect()->route('variants.show', $variant)->with('success', 'Variant updated successfully!');
     }
 
     /**
@@ -78,6 +88,10 @@ class VariantController extends Controller
      */
     public function destroy(Variant $variant)
     {
-        //
+        // Perform soft delete
+        $variant->delete();
+
+        // Return view with redirect
+        return redirect()->route('variants.index', $variant)->with('success', 'Variant deleted successfully!');
     }
 }
