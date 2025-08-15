@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('limitless/assets/css/ltr/components.min.css') }}">
     <link rel="stylesheet" href="{{ asset('limitless/assets/css/ltr/colors.min.css') }}">
 
+    {{-- Phosphor Icons --}}
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     {{-- Custom Dark Mode CSS --}}
     <style>
         :root {
@@ -232,8 +235,15 @@
         .card {
             color: var(--text-primary) !important;
         }
+
+        /* Hide broken accordion arrows because i'm tired of messing with them */
+        .nav-item-submenu > .nav-link:after,
+        .nav-item-submenu > .nav-link:before {
+            display: none !important;
+        }
     </style>
 </head>
+
 <body>
     {{-- Theme Toggle Button --}}
     <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
@@ -296,7 +306,7 @@
                             {{-- Pops! section --}}
                             <li class="nav-item nav-item-submenu">
                                 <a href="#" class="nav-link">
-                                    <i class="ph ph-grid-nine"></i>
+                                    <i class="ph ph-treasure-chest"></i>
                                     <span>Popfolio!</span>
                                 </a>
                                 <ul class="nav nav-group-sub" data-submenu-title="Popfolio">
@@ -318,10 +328,10 @@
                                 </ul>
                             </li>
 
-                            {{-- Lines section --}}
+                            {{-- Categories section --}}
                             <li class="nav-item nav-item-submenu">
                                 <a href="#" class="nav-link">
-                                    <i class="ph ph-grid-nine"></i>
+                                    <i class="ph ph-folder-open"></i>
                                     <span>Categories</span>
                                 </a>
                                 <ul class="nav nav-group-sub" data-submenu-title="Categories">
@@ -371,7 +381,7 @@
                             {{-- Variants --}}
                             <li class="nav-item nav-item-submenu">
                                 <a href="#" class="nav-link">
-                                    <i class="ph ph-star"></i>
+                                    <i class="ph ph-palette"></i>
                                     <span>Variants</span>
                                 </a>
                                 <ul class="nav nav-group-sub" data-submenu-title="Variants">
@@ -418,9 +428,6 @@
     <script src="{{ asset('limitless/assets/js/main/jquery.min.js') }}"></script>
     <script src="{{ asset('limitless/assets/js/main/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('limitless/assets/js/app.js') }}"></script>
-
-    {{-- Phosphor Icons --}}
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     {{-- Dark Mode Toggle Script --}}
     <script>
