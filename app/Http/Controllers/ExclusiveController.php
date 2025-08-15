@@ -63,7 +63,8 @@ class ExclusiveController extends Controller
      */
     public function edit(Exclusive $exclusive)
     {
-        //
+        // Return the view
+        return view('exclusives.edit', compact('exclusive'));
     }
 
     /**
@@ -71,7 +72,16 @@ class ExclusiveController extends Controller
      */
     public function update(Request $request, Exclusive $exclusive)
     {
-        //
+        // Validate the data
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        // Update record
+        $exclusive->update($validated);
+
+        // Return and redirect
+        return redirect()->route('exclusives.show', $exclusive)->with('success', 'Retailer updated successfully!');
     }
 
     /**
@@ -79,6 +89,10 @@ class ExclusiveController extends Controller
      */
     public function destroy(Exclusive $exclusive)
     {
-        //
+        // Perform soft delete
+        $exclusive->delete();
+
+        // Return and redirect
+        return redirect()->route('exclusives.index')->with('success', 'Retailer deleted successfully!');
     }
 }

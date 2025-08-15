@@ -155,6 +155,7 @@ class PopController extends Controller
      */
     public function destroy(Pop $pop)
     {
+        // Perform soft delete
         $pop->delete();
 
         // Return and redirect
