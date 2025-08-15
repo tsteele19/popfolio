@@ -255,14 +255,6 @@
         <div class="navbar-brand">
             <a href="{{ url('/') }}" class="d-inline-block">Popfolio</a>
         </div>
-
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
-                    <i class="ph ph-list"></i>
-                </a>
-            </li>
-        </ul>
     </div>
     {{-- /main navbar --}}
 

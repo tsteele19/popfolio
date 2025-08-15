@@ -29,7 +29,7 @@
                                     </a>
 
                                     <form method="POST" action="{{ route('pops.destroy', $pop) }}" style="display: inline-block;"
-                                        onsubmit="return confirm('Are you sure you want to delete this line?')">
+                                        onsubmit="return confirm('Are you sure you want to delete this Pop!?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">
