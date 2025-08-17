@@ -17,7 +17,7 @@
                     <input type="text" id="name" name="name"
                         value="{{ old('name') }}"
                         class="form-control @error('name') is-invalid @enderror"
-                        placeholder="Enter line name"
+                        placeholder="Enter retailer name"
                         required
                         style="flex-grow: 1;">
                     @error('name')

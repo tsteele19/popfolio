@@ -394,6 +394,22 @@
                                     </li>
                                 </ul>
                             </li>
+                            {{-- Sales --}}
+                            <li class="nav-item nav-item-submenu">
+                                <a href="#" class="nav-link">
+                                    <i class="ph ph-palette"></i>
+                                    <span>Sales</span>
+                                </a>
+                                <ul class="nav nav-group-sub" data-submenu-title="Variants">
+                                    {{-- View All --}}
+                                    <li class="nav-item">
+                                        <a href="{{ route('sales.index') }}" class="nav-link text-white">
+                                            <i class="ph ph-list mr-2"></i>
+                                            View All
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -17,3 +17,7 @@ Route::resource('exclusives', App\Http\Controllers\ExclusiveController::class)->
 Route::resource('categories', App\Http\Controllers\CategoryController::class);
 Route::resource('pops', App\Http\Controllers\PopController::class);
 Route::resource('variants', App\Http\Controllers\VariantController::class);
+
+Route::resource('sales', App\Http\Controllers\SaleController::class);
+Route::get('sales/create/{pop}', [App\Http\Controllers\SaleController::class, 'create'])->name('sales.create');
+

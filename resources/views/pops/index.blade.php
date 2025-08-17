@@ -24,8 +24,12 @@
                                 <td>{{ $pop->name }}</td>
                                 <td>{{ $pop->created_at->format('M d, Y') }}</td>
                                 <td>
-                                    <a href="{{ route('pops.show', $pop) }}" class="btn btn-sm btn-info me-1">
+                                    <a href="{{ route('pops.show', $pop) }}" class="btn btn-sm btn-info me-2">
                                         <i class="ph ph-eye"></i> Show
+                                    </a>
+
+                                    <a href="{{ route('sales.create', ['pop' => $pop->id]) }}" class="btn btn-sm btn-success me-2">
+                                        <i class="ph ph-tag"></i> Sell
                                     </a>
 
                                     <form method="POST" action="{{ route('pops.destroy', $pop) }}" style="display: inline-block;"

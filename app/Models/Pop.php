@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Pop extends Model
 {
     use HasUuids;
@@ -52,5 +51,11 @@ class Pop extends Model
     public function variant()
     {
         return $this->belongsTo(Variant::class);
+    }
+
+    // Sales
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
     }
 }
